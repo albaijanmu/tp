@@ -1,0 +1,51 @@
+{%- assign fieldProps = 'autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"' -%}
+
+<div class="playground js--inview">
+    <span class="playground__notice cursive">Try changing the text, colors and font-size.</span>
+
+    <div class="playground__controls">
+        <div class="row">
+            <div class="col-12 col-md-4 playground__controls-text">
+                <label data-title="Type here to preview text">
+                    <input id="ctrl-text" type="text" value="{{ site.title }}" {{ fieldProps }} />
+                </label>
+            </div>
+
+            <div class="col-8 col-md-4">
+                <label class="color" data-title="Color: --cssans-primary">
+                    <input data-variable="--cssans-primary" data-rgb="31, 51, 104" class="jscolor {position:'top', onFineChange:'cssans.setColor(this)'}" value="1f3368" readonly="true" {{ fieldProps }} />
+                </label>
+                <label class="color" data-title="Color: --cssans-secondary">
+                    <input data-variable="--cssans-secondary" data-rgb="237, 21, 118" class="jscolor {position:'top', onFineChange:'cssans.setColor(this)'}" value="ed1576" readonly="true" {{ fieldProps }} />
+                </label>
+                <label class="color" data-title="Color: --cssans-accent1">
+                    <input data-variable="--cssans-accent1" data-rgb="43, 208, 247" class="jscolor {position:'top', onFineChange:'cssans.setColor(this)'}" value="2bd0f7" readonly="true" {{ fieldProps }} />
+                </label>
+                <label class="color" data-title="Color: --cssans-accent2">
+                    <input data-variable="--cssans-accent2" data-rgb="255, 92, 92" class="jscolor {position:'top', onFineChange:'cssans.setColor(this)'}" value="ff5c5c" readonly="true" {{ fieldProps }} />
+                </label>
+                <label class="color" data-title="Color: --cssans-accent3">
+                    <input data-variable="--cssans-accent3" data-rgb="255, 216, 9" class="jscolor {position:'top', onFineChange:'cssans.setColor(this)'}" value="ffd809" readonly="true" {{ fieldProps }} />
+                </label>
+            </div>
+
+            <div class="col-4 playground__controls-size">
+                <label data-title="Font size">
+                    <input id="ctrl-fontsize" type="range" min="10" max="72" value="44" step="2" />
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="playground__container">
+        <div id="playground" class="cssans--center"></div>
+
+        <form class="post-to-codepen" action="https://codepen.io/pen/define?editors=1100" method="POST" target="_blank">
+          <input type="hidden" id="codepen" name="data" value='{"title": "New Pen!", "html": "<div>Hello, World!</div>"}'>
+          <button data-title="Preview in CodePen" type="submit">
+              {{ icon-edit-on-codepen }}
+              <div class="cssans__accessible">Preview in CodePen</div>
+          </button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,85 @@
+:root {
+  --cssans-primary: 31, 51, 104;    // blue
+  --cssans-secondary: 237, 21, 118; // pink
+  --cssans-accent1: 43, 208, 247;   // light blue
+  --cssans-accent2: 255, 92, 92;    // orange
+  --cssans-accent3: 255, 216, 9;    // yellow
+
+  --cssans-letter-spacing: .1em;
+  --cssans-word-spacing: 1em;
+  --cssans-line-height: 1.1em;
+}
+
+/* Common character styles */
+[class^="cssans:"] {
+  line-height: 0;
+  font-size: inherit;
+  text-align: left;
+  display: inline-block;
+  position: relative;
+  width: 2em;
+  height: 3em;
+  margin-right: var(--cssans-letter-spacing);
+  margin-bottom: var(--cssans-line-height);
+
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+  }
+}
+
+.cssans {
+  line-height: 0;
+
+  &__word {
+    display: inline-block;
+
+    // Fix for letters that use z-index: -1 over a background color.
+    position: relative;
+    z-index: 1;
+
+    &:not(:last-child) {
+      margin-right: var(--cssans-word-spacing);
+    }
+  }
+
+  &--center {
+    text-align: center;
+
+    .cssans__word {
+      margin-left: calc( var(--cssans-word-spacing) / 2);
+      margin-right: calc( var(--cssans-word-spacing) / 2);
+    }
+  }
+
+  &--right {
+    text-align: right;
+
+    .cssans__word {
+      margin-left: var(--cssans-word-spacing);
+      margin-right: 0;
+    }
+  }
+
+  &--slanted .cssans__word {
+    transform: skew(-15deg);
+  }
+
+  &__accessible {
+    clip: rect(1px,1px,1px,1px);
+    clip-path: inset(1px);
+    border: 0;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+    position: absolute;
+    background: #000;
+    color: #fff;
+    font-size: 20px;
+  }
+}
