@@ -80,6 +80,7 @@ body {font-size:16px;}
     <p>Several aspects addressed in order to enhance its activities
     </p>
     <P>Includes: Company strategy, procedures, task and employees as well as the used systems.</P>
+    <span onclick="gotoFramework()">go to framework</span>
   </div>
   
   <!-- Designers -->
@@ -88,7 +89,7 @@ body {font-size:16px;}
     <hr style="width:50px;border:5px solid red" class="w3-round">
     <p>Designed by</p>
     <p><b> Monirah Albaijan</b>
-    I have Information technology bachelor degree currently in may way to get my masters in information system amangment. I bilive that in order to reach achive something we need to helpother achive ther goals as will.
+    I have Information technology bachelor degree curre"ntly in may way to get my masters in information system amangment. I bilive that in order to reach achive something we need to helpother achive ther goals as will.
     </p>
   </div>
 
@@ -217,6 +218,10 @@ function onClick(element) {
   document.getElementById("modal01").style.display = "block";
   var captionText = document.getElementById("caption");
   captionText.innerHTML = element.alt;
+}
+function gotoFramework()
+{
+  window.location.assign("https://www.w3schools.com")
 }
 </script>
 
